@@ -12,13 +12,13 @@ async def startup_event():
     init_db()
     print("✅ Database ready.")
 
-    # Start collector safely within FastAPI event loop
+    # Launch collector safely
     print("🕸️ Launching collector loop...")
     asyncio.create_task(run_collector_loop())
 
 @app.get("/")
 def home():
-    return {"status": "running", "message": "Analyzer active and collecting data."}
+    return {"status": "running", "message": "Analyzer collecting rounds."}
 
 @app.get("/predict")
 def predict():
